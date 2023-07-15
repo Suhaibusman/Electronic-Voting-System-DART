@@ -1,8 +1,9 @@
 import 'dart:io';
-
+List Votinglist =[];
 void main(){
 
 print("==== ELECTRONIC VOTING SYSTEM ====");
+print("Login as ")
 print("Select Candidates");
 print("Press 1 for PTI");
 print("Press 2 for PMLN");
@@ -24,6 +25,13 @@ if (inputCommand == 1) {
 }
 }
 ptiVotingList(){
+print("PTI VOTER LIST");
+print("Please Enter CNIC Number");
+var cnicInput = stdin.readLineSync();
+// print("Please Enter CNIC Number");
+// var cnicinput = stdin.readLineSync();
+
+
 
 }
 pmlnVotingList(){
