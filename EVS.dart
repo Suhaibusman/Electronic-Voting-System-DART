@@ -10,14 +10,18 @@ List Votinglist = [];
 void main() {
  
   while (islogin ==true) {
-      print("==== ELECTRONIC VOTING SYSTEM ====");
+      print("============ ELECTRONIC VOTING SYSTEM ============");
   print("Login as Adminitrative Press 1");
   print("Login as Voter Press 2");
-  int input1 = int.parse(stdin.readLineSync()!);
-  if (input1 == 1) {
+  print("Press Any Key to Stop Program");
+  var input1 = stdin.readLineSync();
+  if (input1 == "1") {
     adminpart();
-  } else if (input1 == 2) {
+  } else if (input1 == "2") {
     addVotingList();
+  }else{
+    print("============Program Endeed!============");
+    islogin =false;
   }
   }
   
@@ -39,14 +43,15 @@ adminpart() {
   stdout.write("Enter Password: ");
   var inputPass = stdin.readLineSync();
   if (inputUser == "admin" && inputPass == "admin") {
-    print("Login Successfull");
-    print("========================================");
+    print("============Login Successfull============");
+    print("=========================================");
     print("Total Votes of PTI Candidates :- ${ptiVoter.length}");
     print("Total Votes of PMLN Candidates :- ${pmlnVoter.length}");
     print("Total Votes of PPP Candidates :- ${pppVoter.length}");
     print("Total Votes of MQM Candidates :- ${mqmVoter.length}");
     print("Total Votes of INDEPENDENT Candidates :- ${independentVoter.length}");
-    
+    print("=========================================");
+    print("This Party get highest votes");
   }else{
     print("email and password not matched");
 
