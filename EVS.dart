@@ -67,16 +67,16 @@ print("Press 3 for PPP");
 print("Press 4 for MQM");
 print("Press 5 for INDEPENDENT");
 
-int inputCommand = int.parse(stdin.readLineSync()!);
-if (inputCommand == 1) {
+var inputCommand = stdin.readLineSync();
+if (inputCommand == "1") {
  ptiVotingList();
-} else if(inputCommand == 2){
+} else if(inputCommand == "2"){
   pmlnVotingList();
-}else if(inputCommand == 3){
+}else if(inputCommand == "3"){
   pppVotingList();
-}else if(inputCommand == 4){
+}else if(inputCommand == "4"){
   mqmVotingList();
-}else if(inputCommand == 5){
+}else if(inputCommand == "5"){
   independentVotingList();
 }else{
 print("PLEASE ENTER NUMBER FROM 1 TO 5");
