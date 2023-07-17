@@ -1,16 +1,16 @@
 import 'dart:io';
-List cnicNumb =[{
-
-}];
+List cnicNumb =[];
 List ptiVoter=[];
 List pmlnVoter=[];
 List pppVoter=[];
 List mqmVoter=[];
 List independentVoter=[];
-
 List Votinglist = [];
+ bool islogin =true;
 void main() {
-  print("==== ELECTRONIC VOTING SYSTEM ====");
+ 
+  while (islogin ==true) {
+      print("==== ELECTRONIC VOTING SYSTEM ====");
   print("Login as Adminitrative Press 1");
   print("Login as Voter Press 2");
   int input1 = int.parse(stdin.readLineSync()!);
@@ -19,10 +19,10 @@ void main() {
   } else if (input1 == 2) {
     addVotingList();
   }
-
+  }
+  
 
 }
-
 addVotingList() {
       print("Please Enter CNIC Number");
     var cnicInput = stdin.readLineSync();
@@ -41,11 +41,15 @@ adminpart() {
   if (inputUser == "admin" && inputPass == "admin") {
     print("Login Successfull");
     print("========================================");
-    print("Total Votes of PTI Candidates :- ");
-    print("Total Votes of PMLN Candidates :- ");
-    print("Total Votes of PPP Candidates :- ");
-    print("Total Votes of MQM Candidates :- ");
-    print("Total Votes of INDEPENDENT Candidates :- ");
+    print("Total Votes of PTI Candidates :- ${ptiVoter.length}");
+    print("Total Votes of PMLN Candidates :- ${pmlnVoter.length}");
+    print("Total Votes of PPP Candidates :- ${pppVoter.length}");
+    print("Total Votes of MQM Candidates :- ${mqmVoter.length}");
+    print("Total Votes of INDEPENDENT Candidates :- ${independentVoter.length}");
+    
+  }else{
+    print("email and password not matched");
+
   }
 }
 allcandidate(){
