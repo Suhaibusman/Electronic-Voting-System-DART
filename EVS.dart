@@ -7,19 +7,26 @@ List mqmVoter=[];
 List independentVoter=[];
 List Votinglist = [];
  bool islogin =true;
+ List poolingAgentIdpass =[
+  {"username": "suhaib","password" : "12345"},
+  {"username": "mehdi","password" : "123456"},
+  {"username": "shakeeb","password" : "00000"},
+ ];
 void main() {
  
   while (islogin ==true) {
       print("============ ELECTRONIC VOTING SYSTEM ============");
-     
-  print("Login as Adminitrative Press 1");
-  print("Login as Voter Press 2");
+     print("Login as Election Commissioner Press 1");
+  print("Login as Pooling Agent Press 2");
+  print("Login as Voter Press 3");
   print("Press Any Key to Stop Program");
   var input1 = stdin.readLineSync();
   if (input1 == "1") {
-    adminpart();
+    electionCommissioner();
   } else if (input1 == "2") {
-    addVotingList();
+    poolingAgent();
+  }else if (input1 == "3") {
+    voterlist();
   }else{
     print("==================Program Endeed==================");
     islogin =false;
@@ -28,17 +35,23 @@ void main() {
   
 
 }
-addVotingList() {
-      print("Please Enter CNIC Number");
-    var cnicInput = stdin.readLineSync();
-
-  cnicNumb.add(cnicInput);
-allcandidate();
+poolingAgent() {
+  print("Enter Your UserName: ");
+var poolingIdInput =stdin.readLineSync();
+   print("Enter Your Password: ");
+   var poolingPassInput =stdin.readLineSync();
+ for (var idPass in poolingAgentIdpass) {
+   if (poolingIdInput == idPass["username"] && poolingPassInput == idPass["password"]) {
+     print("Login Succesfull $poolingIdInput");
+  } else {
+     print("Please Enter Correct Username and Password"); // isko dekhna he 3 dafa loop ki waja se chl rha he
+   }
+ }
 
 
 }
 
-adminpart() {
+electionCommissioner() {
   stdout.write("Enter Username: ");
   var inputUser = stdin.readLineSync();
   stdout.write("Enter Password: ");
@@ -58,6 +71,14 @@ adminpart() {
     print("email and password not matched");
 
   }
+
+}
+voterlist(){
+       print("Please Enter CNIC Number");
+    var cnicInput = stdin.readLineSync();
+
+  cnicNumb.add(cnicInput);
+allcandidate();
 }
 allcandidate(){
 print("Select you Candidates");
