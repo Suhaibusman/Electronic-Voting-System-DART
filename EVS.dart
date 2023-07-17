@@ -11,6 +11,7 @@ void main() {
  
   while (islogin ==true) {
       print("============ ELECTRONIC VOTING SYSTEM ============");
+     
   print("Login as Adminitrative Press 1");
   print("Login as Voter Press 2");
   print("Press Any Key to Stop Program");
@@ -20,7 +21,7 @@ void main() {
   } else if (input1 == "2") {
     addVotingList();
   }else{
-    print("============Program Endeed!============");
+    print("==================Program Endeed==================");
     islogin =false;
   }
   }
@@ -51,7 +52,8 @@ adminpart() {
     print("Total Votes of MQM Candidates :- ${mqmVoter.length}");
     print("Total Votes of INDEPENDENT Candidates :- ${independentVoter.length}");
     print("=========================================");
-    print("This Party get highest votes");
+     highestvotes();
+    print("Voters Cnic Number is :- $cnicNumb");
   }else{
     print("email and password not matched");
 
@@ -76,6 +78,9 @@ if (inputCommand == 1) {
   mqmVotingList();
 }else if(inputCommand == 5){
   independentVotingList();
+}else{
+print("PLEASE ENTER NUMBER FROM 1 TO 5");
+
 }
 }
 ptiVotingList(){
@@ -86,7 +91,7 @@ var partyChangeOption =stdin.readLineSync();
     allcandidate();
 
 }else{
-  print("Your Vote is Counted For PTI");
+   print("===========Your Vote is Counted For PTI===========");
   ptiVoter.add(1);
 }
 }
@@ -98,7 +103,7 @@ var partyChangeOption =stdin.readLineSync();
     allcandidate();
 
 }else{
-  print("Your Vote is Counted For PTI");
+  print("===========Your Vote is Counted For PMLN===========");
   pmlnVoter.add(1);
 }
 }
@@ -110,7 +115,7 @@ var partyChangeOption =stdin.readLineSync();
     allcandidate();
 
 }else{
-  print("Your Vote is Counted For PTI");
+  print("===========Your Vote is Counted For PPP===========");
   pppVoter.add(1);
 }
 }
@@ -122,7 +127,7 @@ var partyChangeOption =stdin.readLineSync();
     allcandidate();
 
 }else{
-  print("Your Vote is Counted For PTI");
+  print("===========Your Vote is Counted For MQM===========");
   mqmVoter.add(1);
 }
 }
@@ -134,10 +139,27 @@ var partyChangeOption =stdin.readLineSync();
     allcandidate();
 
 }else{
-  print("Your Vote is Counted For PTI");
+  print("====Your Vote is Counted For INDEPENDENT PARTY=====");
   mqmVoter.add(1);
 }
 }
+highestvotes(){
+   int max = findMaxListLength([ptiVoter, pmlnVoter, pppVoter, mqmVoter, independentVoter]);
+  print("The highest vote value is: $max");
+}
+
+int findMaxListLength(List<List> lists) {
+  int maxLength = 0;
+
+  for (List list in lists) {
+    if (list.length > maxLength) {
+      maxLength = list.length;
+    }
+  }
+
+  return maxLength;
+}
+
 partyChangeOption(){
 //   var partyChangeOption =stdin.readLineSync();
 //   if (partyChangeOption == "yes") {
